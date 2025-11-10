@@ -13,7 +13,7 @@ Logo Finder is a powerful web application that allows users to search for and do
 
 ## 🚀 Live Demo
 
-**[Visit Logo Finder →](https://your-logo-finder.vercel.app)**
+**[Visit Logo Finder →](https://quicklogoforu.vercel.app/)**
 
 ## ⭐ Key Features
 
