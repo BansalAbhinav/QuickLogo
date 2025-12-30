@@ -54,7 +54,7 @@ function App() {
       {/* Main Content */}
       <div className="relative">
         {/* Hero Section */}
-        <section className="container mx-auto px-6 pt-10 pb-5 text-center">
+        <section className="container mx-auto px-6 pt-20 pb-12 text-center">
           {/* Logo Display */}
           <div className="mb-10 flex justify-center">
             <div className="relative group">
@@ -62,7 +62,7 @@ function App() {
               <div className="absolute -inset-4 bg-linear-to-r from-blue-600 to-violet-600 rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-700" />
               
               {/* Logo container */}
-              <div className="relative bg-white rounded-3xl p-12 shadow-lg border border-slate-200/60">
+              <div className="relative bg-white rounded-3xl p-10 shadow-lg border border-slate-200/60">
                 <svg className="w-32 h-32 text-slate-800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" opacity="0.2"/>
                   <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -74,22 +74,22 @@ function App() {
           </div>
 
           {/* Title & Tagline */}
-          <h1 className="text-6xl md:text-7xl font-light text-slate-900 mb-4 tracking-tight">
+          <h1 className="text-6xl md:text-7xl font-light text-slate-900 mb-5 tracking-tight">
             Logo<span className="font-semibold">Finder</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
             Discover and download premium logos with elegance and precision
           </p>
 
           {/* Search Input */}
-          <div className="max-w-2xl mx-auto mb-12">
+          <div className="max-w-2xl mx-auto mb-10">
             <div className={`relative transition-all duration-300 ${isSearchFocused ? 'scale-[1.02]' : ''}`}>
               <div className={`absolute -inset-1 bg-linear-to-r from-blue-600 to-violet-600 rounded-2xl opacity-0 blur transition-opacity duration-300 ${isSearchFocused ? 'opacity-20' : ''}`} />
               
               <input
                 type="text"
-                className="relative w-full px-8 py-5 text-lg bg-white border-2 border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-300 transition-all duration-300 shadow-sm"
+                className="relative w-full px-7 py-4 text-lg bg-white border-2 border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-300 transition-all duration-300 shadow-sm"
                 placeholder="Search for any logo..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -125,7 +125,7 @@ function App() {
 
             {/* Example searches - only show when no search term */}
             {!searchTerm && (
-              <div className="mt-8 flex flex-wrap gap-3 justify-center">
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 {exampleSearches.map((example) => (
                   <button
                     key={example}
@@ -161,7 +161,7 @@ function App() {
 
           {/* Features Grid - only show when no search */}
           {!searchTerm && (
-            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               {[
                 {
                   icon: (
