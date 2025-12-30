@@ -346,7 +346,7 @@ function App() {
         )}
 
         {/* Footer */}
-        <footer className="border-t border-slate-200/60 bg-black backdrop-blur-sm">
+        <footer className="border-t border-slate-200/60 bg-white/40 backdrop-blur-sm">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
               <p className="flex items-center gap-2">
