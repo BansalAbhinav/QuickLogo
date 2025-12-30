@@ -6,6 +6,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [downloadingId, setDownloadingId] = useState(null)
   const [isSearchFocused, setIsSearchFocused] = useState(false)
+  const [copiedId, setCopiedId] = useState(null)
   
   const { logos, loading, error, searchTerm: debouncedSearchTerm } = useLogoSearch(searchTerm)
 
@@ -25,6 +26,17 @@ function App() {
 
   const handleClearSearch = () => {
     setSearchTerm('')
+  }
+
+  const handleCopyUrl = async (logo) => {
+    try {
+      await navigator.clipboard.writeText(logo.url)
+      setCopiedId(logo.id)
+      setTimeout(() => setCopiedId(null), 2000)
+    } catch (err) {
+      console.error('Copy failed:', err)
+      alert('Failed to copy URL. Please try again.')
+    }
   }
 
   const exampleSearches = ['React', 'GitHub', 'Node.js', 'Docker', 'Figma', 'MongoDB']
@@ -240,30 +252,61 @@ function App() {
                       </span>
                     </div>
                     
-                    {/* Download Button */}
-                    <button
-                      className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
-                        downloadingId === logo.id
-                          ? 'bg-slate-100 text-slate-500 cursor-not-allowed'
-                          : 'bg-slate-900 hover:bg-slate-800 text-white hover:shadow-lg hover:-translate-y-0.5'
-                      }`}
-                      onClick={() => handleDownload(logo)}
-                      disabled={downloadingId === logo.id}
-                    >
-                      {downloadingId === logo.id ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></div>
-                          Downloading...
-                        </>
-                      ) : (
-                        <>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                          </svg>
-                          Download
-                        </>
-                      )}
-                    </button>
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      {/* Copy URL Button */}
+                      <button
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
+                          copiedId === logo.id
+                            ? 'bg-green-500 text-white'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 hover:shadow-md hover:-translate-y-0.5'
+                        }`}
+                        onClick={() => handleCopyUrl(logo)}
+                        title="Copy logo URL"
+                      >
+                        {copiedId === logo.id ? (
+                          <>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            Copied!
+                          </>
+                        ) : (
+                          <>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            Copy
+                          </>
+                        )}
+                      </button>
+
+                      {/* Download Button */}
+                      <button
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
+                          downloadingId === logo.id
+                            ? 'bg-slate-100 text-slate-500 cursor-not-allowed'
+                            : 'bg-slate-900 hover:bg-slate-800 text-white hover:shadow-lg hover:-translate-y-0.5'
+                        }`}
+                        onClick={() => handleDownload(logo)}
+                        disabled={downloadingId === logo.id}
+                        title="Download logo"
+                      >
+                        {downloadingId === logo.id ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></div>
+                            Downloading...
+                          </>
+                        ) : (
+                          <>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -303,7 +346,7 @@ function App() {
         )}
 
         {/* Footer */}
-        <footer className="border-t border-slate-200/60 bg-white/40 backdrop-blur-sm">
+        <footer className="border-t border-slate-200/60 bg-black backdrop-blur-sm">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
               <p className="flex items-center gap-2">
