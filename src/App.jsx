@@ -54,9 +54,9 @@ function App() {
       {/* Main Content */}
       <div className="relative">
         {/* Hero Section */}
-        <section className="container mx-auto px-6 pt-24 pb-16 text-center">
+        <section className="container mx-auto px-6 pt-10 pb-5 text-center">
           {/* Logo Display */}
-          <div className="mb-12 flex justify-center">
+          <div className="mb-10 flex justify-center">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute -inset-4 bg-linear-to-r from-blue-600 to-violet-600 rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-700" />
@@ -74,11 +74,11 @@ function App() {
           </div>
 
           {/* Title & Tagline */}
-          <h1 className="text-6xl md:text-7xl font-light text-slate-900 mb-6 tracking-tight">
+          <h1 className="text-6xl md:text-7xl font-light text-slate-900 mb-4 tracking-tight">
             Logo<span className="font-semibold">Finder</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto mb-16 leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
             Discover and download premium logos with elegance and precision
           </p>
 
@@ -161,7 +161,7 @@ function App() {
 
           {/* Features Grid - only show when no search */}
           {!searchTerm && (
-            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
               {[
                 {
                   icon: (
