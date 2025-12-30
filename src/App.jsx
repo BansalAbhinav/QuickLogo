@@ -42,7 +42,7 @@ function App() {
   const exampleSearches = ['React', 'GitHub', 'Node.js', 'Docker', 'Figma', 'MongoDB']
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-50">
       {/* Subtle background pattern */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -59,7 +59,7 @@ function App() {
           <div className="mb-12 flex justify-center">
             <div className="relative group">
               {/* Glow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-700" />
+              <div className="absolute -inset-4 bg-linear-to-r from-blue-600 to-violet-600 rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-700" />
               
               {/* Logo container */}
               <div className="relative bg-white rounded-3xl p-12 shadow-lg border border-slate-200/60">
@@ -85,7 +85,7 @@ function App() {
           {/* Search Input */}
           <div className="max-w-2xl mx-auto mb-12">
             <div className={`relative transition-all duration-300 ${isSearchFocused ? 'scale-[1.02]' : ''}`}>
-              <div className={`absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl opacity-0 blur transition-opacity duration-300 ${isSearchFocused ? 'opacity-20' : ''}`} />
+              <div className={`absolute -inset-1 bg-linear-to-r from-blue-600 to-violet-600 rounded-2xl opacity-0 blur transition-opacity duration-300 ${isSearchFocused ? 'opacity-20' : ''}`} />
               
               <input
                 type="text"
@@ -143,7 +143,7 @@ function App() {
           {error && (
             <div className="max-w-2xl mx-auto mb-8">
               <div className="bg-red-50 border border-red-200/60 rounded-2xl p-4 flex items-center gap-3 text-red-700">
-                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                 </svg>
                 <span>{error}</span>
